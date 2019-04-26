@@ -36,6 +36,10 @@
         };
         $scope.context = '';
         $scope.acceptLicense = false;
+	  	$scope.target.attributes.ARACHNI_EXTEND_PATH = "";
+		$scope.target.attributes.ARACHNI_INCLUDE_PATTERNS = "";
+        $scope.target.attributes.ARACHNI_EXCLUDE_PATTERNS = "";
+
 
         camForm.on('form-loaded', function () {
             camForm.variableManager.fetchVariable('DEFAULT_CONTEXT');
@@ -50,9 +54,9 @@
         });
 
         camForm.on('submit', function () {
-            $scope.target.attributes.ARACHNI_EXTEND_PATH = $scope.target.attributes.ARACHNI_EXTEND_PATH.split('\n').filter(Boolean);
-            $scope.target.attributes.ARACHNI_INCLUDE_PATTERNS = $scope.target.attributes.ARACHNI_INCLUDE_PATTERNS.split('\n').filter(Boolean);
-            $scope.target.attributes.ARACHNI_EXCLUDE_PATTERNS = $scope.target.attributes.ARACHNI_EXCLUDE_PATTERNS.split('\n').filter(Boolean);
+          	  	$scope.target.attributes.ARACHNI_EXTEND_PATH = $scope.target.attributes.ARACHNI_EXTEND_PATH.split('\n').filter(Boolean);
+		    	$scope.target.attributes.ARACHNI_INCLUDE_PATTERNS = $scope.target.attributes.ARACHNI_INCLUDE_PATTERNS.split('\n').filter(Boolean);
+            	$scope.target.attributes.ARACHNI_EXCLUDE_PATTERNS = $scope.target.attributes.ARACHNI_EXCLUDE_PATTERNS.split('\n').filter(Boolean);
 
             camForm.variableManager.createVariable({
                 name: 'PROCESS_TARGETS',
